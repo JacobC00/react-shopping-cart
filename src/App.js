@@ -1,11 +1,10 @@
-//feature 1
+//change
+
 import React from "react";
 import data from "./data.json";
 import Products from "./components/Products";
 import Filter from "./components/Filter";
 import Cart from "./components/Cart";
-import store from "./store";
-import { Provider } from "react-redux";
 
 class App extends React.Component {
   constructor() {
@@ -16,7 +15,7 @@ class App extends React.Component {
         ? JSON.parse(localStorage.getItem("cartItems"))
         : [],
       size: "",
-      sort: "",
+      sort: "default",
     };
   }
   createOrder = (order) => {
@@ -32,6 +31,10 @@ class App extends React.Component {
       "cartItems",
       JSON.stringify(cartItems.filter((x) => x._id !== product._id))
     );
+    product.disabled = false;
+    console.log(localStorage.getItem("localQuantity" + product._id));
+    console.log(product.disabled);
+    window.location.reload(false);
   };
 
   addToCart = (product) => {
@@ -39,35 +42,131 @@ class App extends React.Component {
     let alreadyInCart = false;
     cartItems.forEach((item) => {
       if (item._id === product._id) {
-        item.count++;
+        if (
+          product.quantity <=
+          localStorage.getItem("localQuantity" + product._id)
+        ) {
+        } else {
+          item.count++;
+        }
+        localStorage.localQuantity++;
+        let localQuantity = localStorage.getItem("localQuantity" + product._id);
+        localQuantity++;
+        localStorage.setItem("localQuantity" + product._id, localQuantity);
+
+        console.log(localStorage.getItem("localQuantity" + product._id));
         alreadyInCart = true;
+        if (
+          product.quantity <=
+          localStorage.getItem("localQuantity" + product._id)
+        ) {
+          product.disabled = true;
+        } else {
+          product.disabled = false;
+        }
+        console.log(product.disabled);
       }
     });
     if (!alreadyInCart) {
-      cartItems.push({ ...product, count: 1 });
+      cartItems.push({
+        ...product,
+        count: 1,
+      });
+      localStorage.setItem("localQuantity" + product._id, 1);
+      localStorage.setItem("disabled" + product._id, false);
+      console.log(localStorage.getItem("localQuantity" + product._id));
+      console.log(localStorage.getItem("disabled" + product._id));
+      if (
+        product.quantity <= localStorage.getItem("localQuantity" + product._id)
+      ) {
+        product.disabled = true;
+      } else {
+        product.disabled = false;
+      }
     }
     this.setState({ cartItems });
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
   };
 
+  // sortProducts = (event) => {
+  //   // impl
+  //   const sort = event.target.value;
+  //   console.log(event.target.value);
+  //   this.setState((state) => ({
+  //     sort: sort,
+  //     products: this.state.products
+  //       .slice()
+  //       .sort((a, b) =>
+  //         sort === "lowest"
+  //           ? a.price > b.price
+  //             ? 1
+  //             : -1
+  //           : sort === "highest"
+  //           ? a.price < b.price
+  //             ? 1
+  //             : -1
+  //           : a._id < b._id
+  //           ? 1
+  //           : -1
+  //       ),
+  //   }));
+  // };
+
   sortProducts = (event) => {
-    // impl
-    const sort = event.target.value;
+    //impl
     console.log(event.target.value);
+    const sort = event.target.value;
+    if (sort === "default") {
+      this.setState((state) => ({
+        sort: sort,
+        products: this.state.products
+          .slice()
+          .sort((a, b) =>
+            a.x === b.x
+              ? a.y === b.y
+                ? a.z > b.z
+                  ? 1
+                  : -1
+                : a.y > b.y
+                ? 1
+                : -1
+              : a.x > b.x
+              ? 1
+              : -1
+          ),
+      }));
+    } else if (sort === "lowest") {
+      this.setState((state) => ({
+        sort: sort,
+        products: this.state.products
+          .slice()
+          .sort((a, b) => (a.price > b.price ? 1 : -1)),
+      }));
+    } else if (sort === "highest") {
+      this.setState((state) => ({
+        sort: sort,
+        products: this.state.products
+          .slice()
+          .sort((a, b) => (a.price < b.price ? 1 : -1)),
+      }));
+    }
+  };
+
+  defaultSort = (sort) => {
     this.setState((state) => ({
       sort: sort,
       products: this.state.products
         .slice()
         .sort((a, b) =>
-          sort === "lowest"
-            ? a.price > b.price
+          a.x === b.x
+            ? a.y === b.y
+              ? a.z > b.z
+                ? 1
+                : -1
+              : a.y > b.y
               ? 1
               : -1
-            : sort === "highest"
-            ? a.price < b.price
-              ? 1
-              : -1
-            : a._id < b._id
+            : a.x > b.x
             ? 1
             : -1
         ),
@@ -83,46 +182,48 @@ class App extends React.Component {
       this.setState({
         size: event.target.value,
         products: data.products.filter(
-          (product) => product.availableSizes.indexOf(event.target.value) >= 0
+          (product) => product.type.indexOf(event.target.value) >= 0
         ),
       });
     }
   };
 
   render() {
+    if (this.state.sort === "default") {
+      this.defaultSort();
+    }
     return (
-      <Provider store={store}>
-        <div className="grid-container">
-          <header>
-            <a href="/">React Shopping Cart</a>
-          </header>
-          <main>
-            <div className="content">
-              <div className="main">
-                <Filter
-                  count={this.state.products.length}
-                  size={this.state.size}
-                  sort={this.state.sort}
-                  filterProducts={this.filterProducts}
-                  sortProducts={this.sortProducts}
-                ></Filter>
-                <Products
-                  products={this.state.products}
-                  addToCart={this.addToCart}
-                ></Products>
-              </div>
-              <div className="sidebar">
-                <Cart
-                  cartItems={this.state.cartItems}
-                  removeFromCart={this.removeFromCart}
-                  createOrder={this.createOrder}
-                />
-              </div>
+      <div className="grid-container">
+        <header>
+          <a href="/">SW Store</a>
+        </header>
+        <main>
+          <div className="content">
+            <div className="main">
+              <Filter
+                count={this.state.products.length}
+                size={this.state.size}
+                sort={this.state.sort}
+                filterProducts={this.filterProducts}
+                sortProducts={this.sortProducts}
+              ></Filter>
+              <Products
+                cartItems={this.state.cartItems}
+                products={this.state.products}
+                addToCart={this.addToCart}
+              ></Products>
             </div>
-          </main>
-          <footer>All right is reserved.</footer>
-        </div>
-      </Provider>
+            <div className="sidebar">
+              <Cart
+                cartItems={this.state.cartItems}
+                removeFromCart={this.removeFromCart}
+                createOrder={this.createOrder}
+              />
+            </div>
+          </div>
+        </main>
+        <footer>Wszelkie prawa zastrzeżone.</footer>
+      </div>
     );
   }
 }

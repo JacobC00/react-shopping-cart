@@ -3,22 +3,14 @@ import formatCurrency from "../util";
 import Fade from "react-reveal/Fade";
 import Modal from "react-modal";
 import Zoom from "react-reveal/Zoom";
-import { connect } from "react-redux";
-import { fetchProducts } from "../actions/productActions";
 
-class Products extends Component {
+export default class Products extends Component {
   constructor(props) {
     super(props);
     this.state = {
       product: null,
     };
   }
-
-  componentDidMount() {
-    this.props.fetchProducts();
-  }
-
-  //change
 
   openModal = (product) => {
     this.setState({ product });
@@ -30,38 +22,51 @@ class Products extends Component {
 
   render() {
     const { product } = this.state;
+
     return (
       <div>
         <Fade bottom cascade>
-          {!this.props.products ? (
-            <div>Loading...</div>
-          ) : (
-            <ul className="products">
-              {this.props.products.map((product) => (
-                <li key={product._id}>
-                  <div className="product">
-                    <a
-                      href={"#" + product._id}
-                      onClick={() => this.openModal(product)}
+          <ul className="products">
+            {this.props.products.map((product) => (
+              <li key={product._id}>
+                <div className="product">
+                  <a
+                    href={"#" + product._id}
+                    onClick={() => this.openModal(product)}
+                  >
+                    <img src={product.image} alt={product.title}></img>
+                    <p className="product-title">{product.title}</p>
+                  </a>
+                  <div className="product-price">
+                    <div>{formatCurrency(product.price)}</div>
+
+                    <button
+                      onClick={() => {
+                        this.props.addToCart(product);
+                      }}
+                      disabled={product.disabled === true ? "disabled" : ""}
+                      className={
+                        product.disabled === true
+                          ? "button primary button-disabled"
+                          : "button primary"
+                      }
                     >
-                      <img src={product.image} alt={product.title}></img>
-                      <p>{product.title}</p>
-                    </a>
-                    <div className="product-price">
-                      <div>{formatCurrency(product.price)}</div>
-                      <button
-                        onClick={() => this.props.addToCart(product)}
-                        className="button primary"
-                      >
-                        Add To Cart
-                      </button>
-                    </div>
+                      Dodaj
+                    </button>
                   </div>
-                </li>
-              ))}
-            </ul>
-          )}
+                  {product.quantity > 1 ? (
+                    <div className="product-quantity">
+                      Dostępna ilość: {product.quantity}
+                    </div>
+                  ) : (
+                    ""
+                  )}
+                </div>
+              </li>
+            ))}
+          </ul>
         </Fade>
+
         {product && (
           <Modal isOpen={true} onRequestClose={this.closeModal}>
             <Zoom>
@@ -75,15 +80,10 @@ class Products extends Component {
                     <strong>{product.title}</strong>
                   </p>
                   <p>{product.description}</p>
-                  <p>
-                    Available Sizes
-                    {product.availableSizes.map((x) => (
-                      <span>
-                        {" "}
-                        <button className="button">{x}</button>
-                      </span>
-                    ))}
-                  </p>
+                  <p>Dostępna ilość: {product.quantity}</p>
+                  Położenie figurki: {product.place}
+                  <br />
+                  (x.y.z: x-płytka, y-rząd, z-kolumna)
                   <div className="product-price">
                     <div>{formatCurrency(product.price)}</div>
                     <button
@@ -93,7 +93,7 @@ class Products extends Component {
                         this.closeModal();
                       }}
                     >
-                      Add To Cart
+                      Dodaj do zamówienia
                     </button>
                   </div>
                 </div>
@@ -105,7 +105,3 @@ class Products extends Component {
     );
   }
 }
-
-export default connect((state) => ({ products: state.products }), {
-  fetchProducts,
-})(Products);

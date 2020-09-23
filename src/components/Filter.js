@@ -4,21 +4,32 @@ export default class Filter extends Component {
   render() {
     return (
       <div className="filter">
-        <div className="filter-result">{this.props.count} Products</div>
+        <div className="filter-result">
+          {this.props.count} Pozycj
+          {this.props.count === 1
+            ? "a"
+            : this.props.count === 0
+            ? "i"
+            : this.props.count < 5
+            ? "e"
+            : "i"}
+        </div>
         <div className="filter-sort">
-          Order{" "}
-          <select value={this.props.size} onChange={this.props.sortProducts}>
-            <option>Latest</option>
-            <option value="lowest">Lowest</option>
-            <option value="highest">Highest</option>
+          Sortuj{" "}
+          <select value={this.props.sort} onChange={this.props.sortProducts}>
+            <option selected="selected" value="default">
+              Domyślnie
+            </option>
+            <option value="lowest">od najtańszych</option>
+            <option value="highest">od najdroższych</option>
           </select>
         </div>
         <div className="filter-size">
-          Filter
+          Filtruj{" "}
           <select value={this.props.size} onChange={this.props.filterProducts}>
-            <option value="">ALL</option>
-            <option value="XS">XS</option>
-            <option value="S">S</option>
+            <option value="All">Wszystko</option>
+            <option value="Clone">Clone</option>
+            <option value="Mandalorian">Mandalorian</option>
             <option value="M">M</option>
             <option value="L">L</option>
             <option value="XL">XL</option>
