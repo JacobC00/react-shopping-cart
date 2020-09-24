@@ -144,12 +144,12 @@ export default class Cart extends Component {
                           cartItems.reduce((a, c) => a + c.price * c.count, 0)
                         )}
                       </p>
-                      <button
+                      {/* <button
                         className="button"
                         onClick={() => this.copyToClipboard(textToCopy)}
                       >
                         Skopiuj do schowka
-                      </button>
+                      </button> */}
                     </ul>
                   </div>
                 </Fade>

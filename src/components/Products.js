@@ -29,39 +29,62 @@ export default class Products extends Component {
           <ul className="products">
             {this.props.products.map((product) => (
               <li key={product._id}>
-                <div className="product">
-                  <a
-                    href={"#" + product._id}
-                    onClick={() => this.openModal(product)}
-                  >
-                    <img src={product.image} alt={product.title}></img>
-                    <p className="product-title">{product.title}</p>
-                  </a>
-                  <div className="product-price">
-                    <div>{formatCurrency(product.price)}</div>
+                {product.quantity === 0 ? (
+                  <div className="product out-of-stock">
+                    <a className="a-disabled">
+                      <img src={product.image} alt={product.title}></img>
+                      <p className="product-title">{product.title}</p>
+                    </a>
+                    <div className="product-price">
+                      <div>{formatCurrency(product.price)}</div>
 
-                    <button
-                      onClick={() => {
-                        this.props.addToCart(product);
-                      }}
-                      disabled={product.disabled === true ? "disabled" : ""}
-                      className={
-                        product.disabled === true
-                          ? "button primary button-disabled"
-                          : "button primary"
-                      }
-                    >
-                      Dodaj
-                    </button>
-                  </div>
-                  {product.quantity > 1 ? (
-                    <div className="product-quantity">
-                      Dostępna ilość: {product.quantity}
+                      <button
+                        onClick={() => {
+                          this.props.addToCart(product);
+                        }}
+                        disabled="disabled"
+                        className="button primary button-disabled"
+                      >
+                        Dodaj
+                      </button>
                     </div>
-                  ) : (
-                    ""
-                  )}
-                </div>
+                    <div className="product-quantity">Out of Stock</div>
+                  </div>
+                ) : (
+                  <div className="product">
+                    <a
+                      href={"#" + product._id}
+                      onClick={() => this.openModal(product)}
+                    >
+                      <img src={product.image} alt={product.title}></img>
+                      <p className="product-title">{product.title}</p>
+                    </a>
+                    <div className="product-price">
+                      <div>{formatCurrency(product.price)}</div>
+
+                      <button
+                        onClick={() => {
+                          this.props.addToCart(product);
+                        }}
+                        disabled={product.disabled === true ? "disabled" : ""}
+                        className={
+                          product.disabled === true
+                            ? "button primary button-disabled"
+                            : "button primary"
+                        }
+                      >
+                        Dodaj
+                      </button>
+                    </div>
+                    {product.quantity > 1 ? (
+                      <div className="product-quantity">
+                        Dostępna ilość: {product.quantity}
+                      </div>
+                    ) : (
+                      ""
+                    )}
+                  </div>
+                )}
               </li>
             ))}
           </ul>
