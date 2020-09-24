@@ -29,11 +29,9 @@ export default class Filter extends Component {
           <select value={this.props.size} onChange={this.props.filterProducts}>
             <option value="All">Wszystko</option>
             <option value="Clone">Clone</option>
-            <option value="Mandalorian">Mandalorian</option>
-            <option value="M">M</option>
-            <option value="L">L</option>
-            <option value="XL">XL</option>
-            <option value="XXL">XXL</option>
+            <option value="Stormtrooper">Stormtrooper</option>
+            <option value="Jedi">Jedi</option>
+            <option value="Sith">Sith</option>
           </select>
         </div>
       </div>

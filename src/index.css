@@ -40,6 +40,10 @@ a:hover {
   color: #ff8000;
 }
 
+.a-disabled:hover {
+  color: black;
+}
+
 header {
   grid-area: header;
   background-color: #203040;
@@ -110,6 +114,15 @@ footer {
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
+}
+
+.out-of-stock {
+  opacity: 50%;
+}
+
+.product a {
+  margin: 0 auto;
+  text-align: center;
 }
 
 .product img {
@@ -279,6 +292,7 @@ input {
 .clear-order {
   margin: 0 auto;
   margin-top: -0.4rem;
+  margin-bottom: -0.1rem;
 
   padding: 0.1rem;
   padding-bottom: 0.2rem;
