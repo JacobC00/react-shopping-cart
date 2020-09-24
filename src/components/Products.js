@@ -31,7 +31,7 @@ export default class Products extends Component {
               <li key={product._id}>
                 {product.quantity === 0 ? (
                   <div className="product out-of-stock">
-                    <a className="a-disabled">
+                    <a href={"#" + product._id} className="a-disabled">
                       <img src={product.image} alt={product.title}></img>
                       <p className="product-title">{product.title}</p>
                     </a>

@@ -51,7 +51,7 @@ export default class Cart extends Component {
   };
   render() {
     const { cartItems } = this.props;
-    const textToCopy = this.state.textToCopy;
+    //const textToCopy = this.state.textToCopy;
     return (
       <div>
         {cartItems.length === 0 ? (
