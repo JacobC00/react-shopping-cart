@@ -195,7 +195,7 @@ class App extends React.Component {
     return (
       <div className="grid-container">
         <header>
-          <a href="/">SW Store</a>
+          <a href="/">SW Minifigures</a>
         </header>
         <main>
           <div className="content">
