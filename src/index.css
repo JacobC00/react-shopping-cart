@@ -117,7 +117,7 @@ footer {
 }
 
 .out-of-stock {
-  opacity: 50%;
+  opacity: 0.5;
 }
 
 .product a {
