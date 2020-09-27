@@ -32,7 +32,7 @@ export default class Cart extends Component {
         " " +
         formatCurrency(item.price) +
         " " +
-        "\n";
+        text.split("\n");
     });
     text +=
       "Wartość zamówienia: " +
@@ -51,7 +51,7 @@ export default class Cart extends Component {
   };
   render() {
     const { cartItems } = this.props;
-    const textToCopy = this.state.textToCopy;
+    // const textToCopy = this.state.textToCopy;
     return (
       <div>
         {cartItems.length === 0 ? (
@@ -144,12 +144,12 @@ export default class Cart extends Component {
                           cartItems.reduce((a, c) => a + c.price * c.count, 0)
                         )}
                       </p>
-                      <button
+                      {/* <button
                         className="button"
                         onClick={() => this.copyToClipboard(textToCopy)}
                       >
                         Skopiuj do schowka
-                      </button>
+                      </button> */}
                     </ul>
                   </div>
                 </Fade>

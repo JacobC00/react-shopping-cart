@@ -508,7 +508,7 @@
       "x": 2,
       "y": 2,
       "z": 5,
-      "quantity": 0,
+      "quantity": 1,
       "price": 40
     },
     {
@@ -1098,7 +1098,7 @@
     {
       "_id": "sw0642",
       "image": "/images/sw0642.jpg",
-      "title": "Droideka - Destroyer Droid (Reddish Brown Triangles without Stickers)",
+      "title": "Droideka - Destroyer Droid (Reddish Brown Triangles)",
       "description": "Minifigurka w stanie idealnym. Produkowana w roku 2015. Składa się z 30 elementów. Pojawia się w jednym zestawie: 75092",
       "type": ["All", "Droid"],
       "place": "4.7.1",
