@@ -52,7 +52,7 @@
       "x": 1,
       "y": 1,
       "z": 4,
-      "quantity": 1,
+      "quantity": 2,
       "product.disabled": false,
       "price": 16
     },
@@ -109,7 +109,7 @@
       "x": 1,
       "y": 2,
       "z": 2,
-      "quantity": 2,
+      "quantity": 0,
       "product.disabled": false,
       "price": 25
     },
@@ -123,7 +123,7 @@
       "x": 1,
       "y": 2,
       "z": 4,
-      "quantity": 1,
+      "quantity": 0,
       "product.disabled": false,
       "price": 50
     },
@@ -137,7 +137,7 @@
       "x": 1,
       "y": 2,
       "z": 5,
-      "quantity": 1,
+      "quantity": 0,
       "product.disabled": false,
       "price": 100
     },
@@ -151,7 +151,7 @@
       "x": 1,
       "y": 2,
       "z": 6,
-      "quantity": 1,
+      "quantity": 0,
       "product.disabled": false,
       "price": 80
     },
@@ -178,7 +178,7 @@
       "x": 1,
       "y": 2,
       "z": 8,
-      "quantity": 1,
+      "quantity": 0,
       "price": 18
     },
     {
@@ -204,7 +204,7 @@
       "x": 1,
       "y": 3,
       "z": 2,
-      "quantity": 1,
+      "quantity": 0,
       "price": 35
     },
 
@@ -257,7 +257,7 @@
       "x": 1,
       "y": 3,
       "z": 6,
-      "quantity": 2,
+      "quantity": 1,
       "price": 40
     },
     {
@@ -348,7 +348,7 @@
       "x": 1,
       "y": 4,
       "z": 8,
-      "quantity": 1,
+      "quantity": 0,
       "price": 120
     },
     {
@@ -400,7 +400,7 @@
       "x": 1,
       "y": 5,
       "z": 4,
-      "quantity": 1,
+      "quantity": 0,
       "price": 15
     },
     {
@@ -468,7 +468,7 @@
       "x": 2,
       "y": 1,
       "z": 5,
-      "quantity": 3,
+      "quantity": 0,
       "product.disabled": false,
       "price": 35
     },
@@ -495,7 +495,7 @@
       "x": 2,
       "y": 2,
       "z": 1,
-      "quantity": 4,
+      "quantity": 3,
       "price": 45
     },
     {
@@ -508,7 +508,7 @@
       "x": 2,
       "y": 2,
       "z": 5,
-      "quantity": 1,
+      "quantity": 0,
       "price": 40
     },
     {
@@ -521,7 +521,7 @@
       "x": 2,
       "y": 2,
       "z": 6,
-      "quantity": 1,
+      "quantity": 0,
       "price": 30
     },
 
@@ -626,7 +626,7 @@
       "x": 2,
       "y": 3,
       "z": 7,
-      "quantity": 2,
+      "quantity": 1,
       "price": 30
     },
     {
@@ -639,7 +639,7 @@
       "x": 2,
       "y": 4,
       "z": 1,
-      "quantity": 1,
+      "quantity": 0,
       "price": 30
     },
     {
@@ -652,7 +652,7 @@
       "x": 2,
       "y": 4,
       "z": 2,
-      "quantity": 1,
+      "quantity": 0,
       "price": 18
     },
     {
@@ -665,7 +665,7 @@
       "x": 2,
       "y": 4,
       "z": 3,
-      "quantity": 1,
+      "quantity": 0,
       "price": 12
     },
     {
@@ -1119,7 +1119,7 @@
       "x": 4,
       "y": 8,
       "z": 1,
-      "quantity": 20,
+      "quantity": 25,
       "product.disabled": false,
       "price": 15
     }
