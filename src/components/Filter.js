@@ -32,6 +32,7 @@ export default class Filter extends Component {
             <option value="Stormtrooper">Stormtrooper</option>
             <option value="Jedi">Jedi</option>
             <option value="Sith">Sith</option>
+            <option value="Droid">Droid</option>
           </select>
         </div>
       </div>
