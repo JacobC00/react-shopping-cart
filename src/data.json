@@ -535,7 +535,7 @@
       "x": 2,
       "y": 2,
       "z": 7,
-      "quantity": 1,
+      "quantity": 0,
       "price": 220
     },
     {
@@ -756,7 +756,7 @@
       "x": 2,
       "y": 5,
       "z": 4,
-      "quantity": 1,
+      "quantity": 0,
       "price": 30
     },
     {
@@ -782,7 +782,7 @@
       "x": 2,
       "y": 5,
       "z": 6,
-      "quantity": 1,
+      "quantity": 0,
       "price": 20
     },
     {
@@ -886,7 +886,7 @@
       "x": 2,
       "y": 8,
       "z": 2,
-      "quantity": 1,
+      "quantity": 0,
       "price": 20
     },
     {
