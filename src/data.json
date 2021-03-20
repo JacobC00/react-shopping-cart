@@ -296,7 +296,7 @@
       "x": 1,
       "y": 4,
       "z": 2,
-      "quantity": 2,
+      "quantity": 1,
       "price": 70
     },
     {
@@ -361,7 +361,7 @@
       "x": 1,
       "y": 5,
       "z": 1,
-      "quantity": 1,
+      "quantity": 0,
       "price": 35
     },
     {
@@ -374,7 +374,7 @@
       "x": 1,
       "y": 5,
       "z": 2,
-      "quantity": 1,
+      "quantity": 0,
       "price": 15
     },
     {
@@ -535,8 +535,8 @@
       "x": 2,
       "y": 2,
       "z": 7,
-      "quantity": 0,
-      "price": 220
+      "quantity": 1,
+      "price": 260
     },
     {
       "_id": "sw0002a",
@@ -808,7 +808,7 @@
       "x": 2,
       "y": 6,
       "z": 1,
-      "quantity": 4,
+      "quantity": 3,
       "price": 18
     },
     {
@@ -979,7 +979,7 @@
       "x": 3,
       "y": 3,
       "z": 1,
-      "quantity": 2,
+      "quantity": 1,
       "product.disabled": false,
       "price": 10
     },
@@ -1007,7 +1007,7 @@
       "x": 3,
       "y": 5,
       "z": 1,
-      "quantity": 2,
+      "quantity": 0,
       "product.disabled": false,
       "price": 12
     },
@@ -1091,7 +1091,7 @@
       "x": 4,
       "y": 6,
       "z": 1,
-      "quantity": 12,
+      "quantity": 11,
       "product.disabled": false,
       "price": 12
     },
@@ -1105,7 +1105,7 @@
       "x": 4,
       "y": 7,
       "z": 1,
-      "quantity": 8,
+      "quantity": 7,
       "product.disabled": false,
       "price": 13
     },
