@@ -80,9 +80,9 @@
       "x": 1,
       "y": 1,
       "z": 7,
-      "quantity": 2,
+      "quantity": 1,
       "product.disabled": false,
-      "price": 140
+      "price": 200
     },
     {
       "_id": "sw0707",
@@ -257,7 +257,7 @@
       "x": 1,
       "y": 3,
       "z": 6,
-      "quantity": 1,
+      "quantity": 0,
       "price": 40
     },
     {
@@ -587,7 +587,7 @@
       "x": 2,
       "y": 3,
       "z": 4,
-      "quantity": 1,
+      "quantity": 0,
       "price": 35
     },
     {
@@ -730,7 +730,7 @@
       "x": 2,
       "y": 5,
       "z": 2,
-      "quantity": 1,
+      "quantity": 0,
       "price": 35
     },
     {
@@ -860,7 +860,7 @@
       "x": 2,
       "y": 7,
       "z": 8,
-      "quantity": 1,
+      "quantity": 0,
       "price": 30
     },
     {
@@ -899,7 +899,7 @@
       "x": 2,
       "y": 8,
       "z": 3,
-      "quantity": 1,
+      "quantity": 0,
       "price": 25
     },
     {
@@ -1119,7 +1119,7 @@
       "x": 4,
       "y": 8,
       "z": 1,
-      "quantity": 24,
+      "quantity": 25,
       "product.disabled": false,
       "price": 15
     }
